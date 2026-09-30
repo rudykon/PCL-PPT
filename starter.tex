@@ -1,0 +1,121 @@
+% !TeX program = xelatex
+% 14-page editable starter following the supplied PPTX's page sequence.
+\documentclass[10pt,aspectratio=169]{beamer}
+\usetheme{PCL} % 如需额外章节过渡页，可用 \usetheme[sectionpages]{PCL}
+\usepackage{amsmath,amssymb,booktabs,tabularx}
+\title[报告简称]{题目：在此填写报告标题}
+\subtitle{}
+\author{汇报人：XXX}
+\institute{XXX研究部}
+\date{\PCLtoday}
+\contact{}
+
+\begin{document}
+\maketitle
+\PCLcontents
+
+\section{研究背景}
+\begin{frame}{一、研究背景}
+  \PCLtakeaway[研究问题]{在此填写项目面向的问题与需求。}
+  \vspace{0.5cm}
+  \begin{itemize}
+    \setlength{\itemsep}{0.7em}
+    \item 研究背景
+    \item 现有研究与主要不足
+    \item 开展本项目的必要性
+  \end{itemize}
+\end{frame}
+
+\section{研究目标}
+\begin{frame}{二、研究目标}
+  \begin{block}{总体目标}
+    在此填写项目总体目标。
+  \end{block}
+  \begin{enumerate}
+    \setlength{\itemsep}{0.7em}
+    \item 目标一
+    \item 目标二
+    \item 目标三
+  \end{enumerate}
+\end{frame}
+
+\section{研究内容}
+\begin{frame}{三、研究内容}
+  \begin{itemize}
+    \setlength{\itemsep}{0.8em}
+    \item 研究内容一
+    \item 研究内容二
+    \item 研究内容三
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{项目分解}
+  \centering
+  \PCLplaceholder[3.8cm]{12cm}{在此插入课题分解图}
+\end{frame}
+
+\begin{frame}{课题 1：XXX研究内容}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      \begin{block}{研究任务}
+        在此填写课题的关键研究任务。
+      \end{block}
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \begin{block}{技术路线}
+        在此填写方法与技术路线。
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{课题 1：预期成果}
+  \begin{itemize}
+    \setlength{\itemsep}{0.8em}
+    \item 成果内容
+    \item 考核指标
+    \item 交付形式
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{项目实施计划}
+  \centering
+  \PCLplaceholder[3.8cm]{12cm}{在此填写阶段计划与里程碑}
+\end{frame}
+
+\section{预期成果}
+\begin{frame}{四、项目预期代表性成果}
+  \begin{enumerate}
+    \setlength{\itemsep}{0.8em}
+    \item 代表性成果一
+    \item 代表性成果二
+    \item 代表性成果三
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{项目特色与关键突破}
+  \PCLtakeaway[关键特色]{在此填写本项目的核心差异及支撑依据。}
+\end{frame}
+
+\section{研究团队}
+\begin{frame}{五、研究团队}
+  \renewcommand{\arraystretch}{1.7}
+  \begin{tabularx}{\linewidth}{@{}llX@{}}
+    \toprule
+    角色 & 姓名 / 团队 & 主要职责\\
+    \midrule
+    项目负责人 & XXX & 待填写\\
+    课题负责人 & XXX & 待填写\\
+    研究骨干 & XXX & 待填写\\
+    \bottomrule
+  \end{tabularx}
+\end{frame}
+
+\begin{frame}{研究基础}
+  \centering
+  % 使用实际图片：\includegraphics[width=0.9\linewidth,height=4cm,keepaspectratio]{assets/your-figure.pdf}
+  \PCLplaceholder[3.8cm]{12cm}{在此展示前期工作与研究条件}
+\end{frame}
+
+\PCLthanks
+\end{document}

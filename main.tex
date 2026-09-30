@@ -1,0 +1,240 @@
+% !TeX program = xelatex
+% Layout follows the user-provided PCL汇报PPT模板.pptx.
+\documentclass[10pt,aspectratio=169]{beamer}
+\usetheme{PCL}
+\usepackage{amsmath,amssymb,booktabs,tabularx}
+
+% ---------- 在此填写汇报信息 ----------
+\title[项目汇报]{题目：XXX}
+\subtitle{}
+\author{汇报人：XXX}
+\institute{XXX研究部}
+\date{\PCLtoday}
+\contact{}
+
+\tikzset{
+  pcltask/.style={draw=PCLLine,fill=PCLLight,rounded corners=1pt,
+    minimum width=3.7cm,minimum height=1.18cm,align=center,font=\small,text=PCLInk},
+  pclarrow/.style={-{Stealth[length=2mm]},line width=0.85pt,draw=PCLBlue}
+}
+
+\begin{document}
+\maketitle
+\PCLcontents
+
+\section{研究背景}
+\begin{frame}{一、研究背景}
+  \PCLtakeaway[研究问题]{在此概括项目面向的场景、主要问题及研究必要性。}
+  \vspace{0.5cm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      \begin{block}{背景与需求}
+        \begin{itemize}
+          \setlength{\itemsep}{0.7em}
+          \item 项目面向的具体应用场景
+          \item 现阶段存在的主要困难
+          \item 开展研究的必要性
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \begin{block}{现有研究与不足}
+        \begin{itemize}
+          \setlength{\itemsep}{0.7em}
+          \item 已有工作的代表性思路
+          \item 尚未解决的关键限制
+          \item 本项目拟解决的问题
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \PCLnote{本页文字为模板占位；请补充实际依据与资料来源。}
+\end{frame}
+
+\section{研究目标}
+\begin{frame}{二、研究目标}
+  \PCLtakeaway[总体目标]{在此写明项目希望实现的能力及其适用条件。}
+  \vspace{0.45cm}
+  \renewcommand{\arraystretch}{1.65}
+  \begin{tabularx}{\linewidth}{@{}lXX@{}}
+    \toprule
+    \textbf{目标层次} & \textbf{拟达到的目标} & \textbf{验证方式}\\
+    \midrule
+    目标一 & 在此填写理论或方法目标 & 对应分析或实验验证\\
+    目标二 & 在此填写技术或系统目标 & 对应系统与性能验证\\
+    目标三 & 在此填写场景或应用目标 & 对应任务与场景验证\\
+    \bottomrule
+  \end{tabularx}
+  \vspace{0.4cm}
+  \PCLnote{建议明确指标、单位、验证条件及验收口径；未确定的数值保留为空。}
+\end{frame}
+
+\section{研究内容}
+\begin{frame}{三、研究内容}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.31\textwidth}
+      \begin{block}{研究内容一}
+        \vspace{0.3em}
+        研究问题与理论建模\par\medskip
+        \textcolor{PCLMuted}{在此填写对象、假设及关键问题。}
+        \vspace{0.3em}
+      \end{block}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \begin{block}{研究内容二}
+        \vspace{0.3em}
+        关键方法与技术设计\par\medskip
+        \textcolor{PCLMuted}{在此填写方法、模块及设计依据。}
+        \vspace{0.3em}
+      \end{block}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \begin{block}{研究内容三}
+        \vspace{0.3em}
+        系统实现与场景验证\par\medskip
+        \textcolor{PCLMuted}{在此填写平台、任务及验证方案。}
+        \vspace{0.3em}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vspace{0.7cm}
+  \PCLtakeaway[内容关系]{说明三个研究内容之间的依赖、衔接与共同目标。}
+\end{frame}
+
+\begin{frame}{项目分解}
+  \centering
+  \begin{tikzpicture}[node distance=1.1cm]
+    \node[pcltask,fill=PCLBlue,text=white,draw=PCLBlue,minimum width=5.0cm] (project)
+      {项目总体目标};
+    \node[pcltask] (task1) at (-4.5,-2.3) {课题 1\\[-0.1em]\scriptsize 理论与方法};
+    \node[pcltask] (task2) at (0,-2.3) {课题 2\\[-0.1em]\scriptsize 技术与系统};
+    \node[pcltask] (task3) at (4.5,-2.3) {课题 3\\[-0.1em]\scriptsize 场景与验证};
+    \coordinate[below=0.48cm of project] (joint);
+    \draw[PCLBlue,line width=0.85pt] (project.south) -- (joint);
+    \draw[pclarrow] (joint) -| (task1.north);
+    \draw[pclarrow] (joint) -- (task2.north);
+    \draw[pclarrow] (joint) -| (task3.north);
+  \end{tikzpicture}
+  \vspace{0.65cm}
+  \PCLtakeaway[任务接口]{在此说明各课题的输入、输出与协同关系。}
+  \PCLnote{全部节点与连线均由 TikZ 绘制，可编辑名称、数量与关系。}
+\end{frame}
+
+\begin{frame}{课题 1：XXX研究内容}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{研究任务}
+        \begin{enumerate}
+          \setlength{\itemsep}{0.65em}
+          \item 明确问题与约束条件
+          \item 设计关键模型或方法
+          \item 完成验证与结果分析
+        \end{enumerate}
+      \end{block}
+      \PCLnote{将左侧任务与右侧技术路线逐项对应。}
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \centering
+      \PCLplaceholder[3.4cm]{6.5cm}{在此插入技术路线图\\[0.5em]\scriptsize 支持 PDF / PNG / JPEG}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{课题 1：预期成果}
+  \renewcommand{\arraystretch}{1.65}
+  \begin{tabularx}{\linewidth}{@{}lXXX@{}}
+    \toprule
+    \textbf{成果类型} & \textbf{具体内容} & \textbf{考核指标} & \textbf{交付形式}\\
+    \midrule
+    方法与技术 & 在此填写 & 待明确 & 报告 / 代码\\
+    原型与系统 & 在此填写 & 待明确 & 原型 / 文档\\
+    场景与验证 & 在此填写 & 待明确 & 测试 / 演示\\
+    \bottomrule
+  \end{tabularx}
+  \vspace{0.6cm}
+  \PCLtakeaway[填写要点]{将每项成果与研究任务、验收指标及交付材料对应。}
+\end{frame}
+
+\begin{frame}{项目实施计划}
+  \centering
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    \foreach \q in {0,1,2,3}{
+      \pgfmathsetmacro{\xx}{3.4+2.4*\q}
+      \node[text=PCLBlue,font=\small\bfseries] at (\xx+1.2,0.5) {阶段\ifcase\q 一\or 二\or 三\or 四\fi};
+      \fill[PCLLight] (\xx,0.1) rectangle (\xx+2.25,-3.25);
+    }
+    \foreach \label/\yy in {需求与方案/-.45,关键技术研究/-1.2,系统实现/-1.95,验证与交付/-2.7}{
+      \node[anchor=east,text=PCLInk,font=\small] at (3.1,\yy) {\label};
+    }
+    \fill[PCLBlue] (3.65,-.65) rectangle (5.35,-.25);
+    \fill[PCLBlue!80!PCLCyan] (5.25,-1.40) rectangle (8.75,-1.00);
+    \fill[PCLTeal] (7.95,-2.15) rectangle (11.15,-1.75);
+    \fill[PCLNavy] (10.55,-2.90) rectangle (12.75,-2.50);
+  \end{tikzpicture}
+  \PCLnote{进度条仅为版式示例。请将阶段名称、起止时间和任务跨度替换为实际计划。}
+\end{frame}
+
+\section{预期成果}
+\begin{frame}{四、项目预期代表性成果}
+  \begin{enumerate}
+    \setlength{\itemsep}{0.75cm}
+    \item \textbf{代表性成果一}\quad 在此概括预期形成的核心理论或方法。
+    \item \textbf{代表性成果二}\quad 在此概括预期形成的技术、原型或系统。
+    \item \textbf{代表性成果三}\quad 在此概括预期完成的应用与验证。
+  \end{enumerate}
+  \vspace{0.4cm}
+  \PCLtakeaway[成果价值]{说明成果对应的需求、预期价值及可检验的支撑材料。}
+\end{frame}
+
+\begin{frame}{项目特色与关键突破}
+  \begin{block}{理论或方法特色}
+    在此写明相较已有工作的关键差异及其必要性。
+  \end{block}
+  \medskip
+  \begin{block}{技术或系统突破}
+    在此说明拟突破的具体限制，以及关键技术设计。
+  \end{block}
+  \medskip
+  \begin{block}{验证与应用特色}
+    在此说明验证场景、评价方式和预期适用边界。
+  \end{block}
+\end{frame}
+
+\section{研究团队}
+\begin{frame}{五、研究团队}
+  \renewcommand{\arraystretch}{1.6}
+  \begin{tabularx}{\linewidth}{@{}llX@{}}
+    \toprule
+    \textbf{角色} & \textbf{姓名 / 团队} & \textbf{主要职责}\\
+    \midrule
+    项目负责人 & XXX & 总体组织、研究统筹与关键决策\\
+    课题负责人 & XXX & 课题设计、实施与成果交付\\
+    研究骨干 & XXX & 关键方法、技术与实验研究\\
+    支撑团队 & XXX & 平台建设、数据管理与测试验证\\
+    \bottomrule
+  \end{tabularx}
+  \vspace{0.45cm}
+  \PCLnote{所有姓名和分工均为模板占位，按实际团队替换。}
+\end{frame}
+
+\begin{frame}{研究基础}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \PCLplaceholder[3.55cm]{6.6cm}{在此展示已有成果或研究条件\\[0.6em]\scriptsize 论文 / 系统 / 平台 / 实验设备}
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \begin{itemize}
+        \setlength{\itemsep}{0.75em}
+        \item 已有研究积累与代表性成果
+        \item 支撑项目实施的平台与条件
+        \item 与本项目直接相关的前期工作
+      \end{itemize}
+      \PCLnote{请补充真实资料和来源，避免将示例视为已有成果。}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\PCLthanks
+\end{document}

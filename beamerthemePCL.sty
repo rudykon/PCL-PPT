@@ -1,0 +1,336 @@
+% PCL theme reconstructed from the user-provided PCL presentation template.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemePCL}[2026/09/30 Reference PPTX edition]
+\RequirePackage{iftex}
+\ifXeTeX\else
+  \PackageError{beamerthemePCL}{Please compile with XeLaTeX}{Run latexmk main.tex.}
+\fi
+\RequirePackage{fontspec}
+\RequirePackage{xeCJK}
+\RequirePackage{tikz}
+\usetikzlibrary{calc,arrows.meta,positioning}
+\newif\ifpcl@sectionpages
+\pcl@sectionpagesfalse
+\DeclareOptionBeamer{sectionpages}{\pcl@sectionpagestrue}
+\DeclareOptionBeamer{nosectionpages}{\pcl@sectionpagesfalse}
+\ProcessOptionsBeamer
+
+% Colors sampled from the reference slide master.
+\definecolor{PCLNavy}{HTML}{00467A}
+\definecolor{PCLBlue}{HTML}{005B9C}
+\definecolor{PCLCyan}{HTML}{08A3ED}
+\definecolor{PCLLight}{HTML}{EFF6FB}
+\definecolor{PCLInk}{HTML}{263746}
+\definecolor{PCLMuted}{HTML}{62788A}
+\definecolor{PCLLine}{HTML}{D6E4EE}
+\definecolor{PCLTeal}{HTML}{087F9A}
+\definecolor{PCLAmber}{HTML}{916216}
+\IfFontExistsTF{TeX Gyre Heros}
+  {\setsansfont{TeX Gyre Heros}}
+  {\setsansfont{lmsans10-regular.otf}[
+    BoldFont=lmsans10-bold.otf,ItalicFont=lmsans10-oblique.otf,
+    BoldItalicFont=lmsans10-boldoblique.otf]}
+\setmainfont{lmroman10-regular.otf}[
+  BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,
+  BoldItalicFont=lmroman10-bolditalic.otf]
+\setmonofont{lmmono10-regular.otf}[
+  BoldFont=lmmonolt10-bold.otf,ItalicFont=lmmono10-italic.otf,
+  BoldItalicFont=lmmonolt10-boldoblique.otf,Scale=MatchLowercase]
+\IfFontExistsTF{Noto Sans CJK SC}{%
+  \setCJKmainfont{Noto Sans CJK SC}
+  \setCJKsansfont{Noto Sans CJK SC}
+  \setCJKmonofont{Noto Sans CJK SC}
+}{%
+  \setCJKmainfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+  \setCJKsansfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+  \setCJKmonofont{FandolHei-Regular}
+}
+\usefonttheme{professionalfonts}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\newcommand{\pcl@logofile}{assets/pcl-emblem.jpg}
+\newcommand{\PCLsetlogo}[1]{\renewcommand{\pcl@logofile}{#1}}
+\newcommand{\pcl@contact}{}
+\newcommand{\contact}[1]{\renewcommand{\pcl@contact}{#1}}
+\newcommand{\pcl@meeting}{项目汇报}
+\newcommand{\meeting}[1]{\renewcommand{\pcl@meeting}{#1}}
+\newcommand{\PCLtoday}{\number\year 年\number\month 月\number\day 日}
+\newcommand{\pcl@seal}[1]{%
+  \begin{tikzpicture}
+    \clip (0,0) circle[radius=0.5*#1];
+    \node[inner sep=0pt] at (0,0) {\includegraphics[width=#1]{\pcl@logofile}};
+  \end{tikzpicture}%
+}
+\newcommand{\PCLchn}[1]{\ifcase#1\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\or 十\else#1\fi}
+\mode<presentation>
+\setbeamercolor{normal text}{fg=PCLInk,bg=white}
+\setbeamercolor{structure}{fg=PCLBlue}
+\setbeamercolor{alerted text}{fg=PCLBlue}
+\setbeamercolor{example text}{fg=PCLTeal}
+\setbeamercolor{title}{fg=PCLBlue}
+\setbeamercolor{frametitle}{fg=PCLBlue,bg=white}
+\setbeamercolor{framesubtitle}{fg=PCLMuted}
+\setbeamercolor{section in toc}{fg=PCLBlue}
+\setbeamercolor{subsection in toc}{fg=PCLMuted}
+\setbeamercolor{block title}{fg=white,bg=PCLBlue}
+\setbeamercolor{block body}{fg=PCLInk,bg=PCLLight}
+\setbeamercolor{block title example}{fg=white,bg=PCLTeal}
+\setbeamercolor{block body example}{fg=PCLInk,bg=PCLTeal!6!white}
+\setbeamercolor{block title alerted}{fg=white,bg=PCLNavy}
+\setbeamercolor{block body alerted}{fg=PCLInk,bg=PCLLight}
+\setbeamercolor{footnote}{fg=PCLMuted}
+\setbeamercolor{caption name}{fg=PCLBlue}
+\setbeamerfont{frametitle}{size=\fontsize{16}{20}\selectfont,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\scriptsize}
+\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
+\setbeamerfont{block body}{size=\small}
+\setbeamerfont{section in toc}{size=\fontsize{18}{23}\selectfont,series=\bfseries}
+\setbeamerfont{subsection in toc}{size=\small}
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamerfont{caption}{size=\scriptsize}
+\setbeamersize{text margin left=8mm,text margin right=8mm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[default]
+\setbeamertemplate{itemize item}{\raisebox{0.15ex}{\scriptsize$\bullet$}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.15ex}{\tiny$\bullet$}}
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{section in toc}{%
+  \leavevmode\PCLchn{\inserttocsectionnumber}、\inserttocsection\par\vspace{0.45cm}}
+\setbeamercovered{invisible}
+\hypersetup{colorlinks=true,urlcolor=PCLBlue,linkcolor=PCLBlue}
+% Read every section from Beamer's navigation data, including future sections.
+% Labels and destinations follow \section[short title]{full title} automatically.
+\newcount\pcl@timelinecount
+\newcount\pcl@timelineactive
+\newdimen\pcl@timelinelabelwidth
+\newcommand{\pcl@collecttimeline}{%
+  \pcl@timelinecount=0
+  \pcl@timelineactive=0
+  \def\slideentry##1##2##3##4##5##6{}%
+  \def\beamer@subsectionentry##1##2##3##4##5{}%
+  \def\beamer@subsubsectionentry##1##2##3##4##5##6{}%
+  \def\sectionentry##1##2##3##4##5{%
+    \ifnum##5=\c@part
+      \advance\pcl@timelinecount by 1\relax
+      \expandafter\def\csname pcl@timelinelabel@\the\pcl@timelinecount\endcsname{##2}%
+      \expandafter\def\csname pcl@timelinefull@\the\pcl@timelinecount\endcsname{##4}%
+      \expandafter\def\csname pcl@timelinepage@\the\pcl@timelinecount\endcsname{##3}%
+      \ifnum##1=\c@section
+        \pcl@timelineactive=\pcl@timelinecount
+      \fi
+    \fi
+  }%
+  \dohead
+}
+% Called inside a page-anchored TikZ picture; #1 is the top offset.
+\newcommand{\pcl@drawtimeline}[1]{%
+  \begingroup
+  \pcl@collecttimeline
+  \hypersetup{hidelinks}% keep the three navigation states' text colors
+  \begin{scope}[shift={([yshift=-#1]current page.north west)},x=1cm,y=1cm]
+    \fill[PCLLight] (0,0) rectangle (\paperwidth,-0.80);
+    \ifnum\pcl@timelinecount>0
+      \pgfmathsetmacro{\pcl@timelinestep}{14.4/\the\pcl@timelinecount}
+      \pgfmathsetmacro{\pcl@timelinefirst}{0.8+0.5*\pcl@timelinestep}
+      \pgfmathsetmacro{\pcl@timelinelast}{15.2-0.5*\pcl@timelinestep}
+      \draw[PCLLine,line width=1pt]
+        (\pcl@timelinefirst,-0.20) -- (\pcl@timelinelast,-0.20);
+      \ifnum\pcl@timelineactive>0
+        \pgfmathsetmacro{\pcl@timelineend}{0.8+(\the\pcl@timelineactive-0.5)*\pcl@timelinestep}
+        \draw[PCLBlue,line width=1.2pt]
+          (\pcl@timelinefirst,-0.20) -- (\pcl@timelineend,-0.20);
+      \fi
+      \pcl@timelinelabelwidth=14.4cm
+      \divide\pcl@timelinelabelwidth by\pcl@timelinecount
+      \advance\pcl@timelinelabelwidth by -2mm
+      \foreach \i in {1,...,\the\pcl@timelinecount}{%
+        \pgfmathsetmacro{\pcl@timelinex}{0.8+(\i-0.5)*\pcl@timelinestep}
+        \def\pcl@timelinefg{PCLMuted}%
+        \def\pcl@timelinebg{PCLLight}%
+        \def\pcl@timelineweight{\mdseries}%
+        \ifnum\i>\pcl@timelineactive
+          \draw[draw=PCLMuted!60,fill=PCLLight,line width=0.6pt]
+            (\pcl@timelinex,-0.20) circle[radius=0.065cm];
+        \else
+          \def\pcl@timelinefg{PCLBlue}%
+          \fill[PCLBlue] (\pcl@timelinex,-0.20) circle[radius=0.065cm];
+          \ifnum\i=\pcl@timelineactive
+            \def\pcl@timelinefg{white}%
+            \def\pcl@timelinebg{PCLBlue}%
+            \def\pcl@timelineweight{\bfseries}%
+            \draw[PCLCyan,line width=0.8pt]
+              (\pcl@timelinex,-0.20) circle[radius=0.105cm];
+          \fi
+        \fi
+        \node[inner sep=0pt] at (\pcl@timelinex,-0.20) {%
+          \hyperlink{Navigation\csname pcl@timelinepage@\i\endcsname}{%
+            \phantom{\rule{3mm}{3mm}}}};
+        \node[align=center,rounded corners=1.4pt,inner xsep=0.8mm,inner ysep=0.65mm,
+          text width=\pcl@timelinelabelwidth,text=\pcl@timelinefg,fill=\pcl@timelinebg,
+          font=\fontsize{7.3}{8.5}\selectfont\pcl@timelineweight]
+          at (\pcl@timelinex,-0.53) {%
+            \hyperlink{Navigation\csname pcl@timelinepage@\i\endcsname}{%
+              \ifnum\i<10 0\fi\i\enspace\csname pcl@timelinelabel@\i\endcsname}};
+      }
+    \fi
+  \end{scope}%
+  \endgroup
+}
+
+
+% Three blue bars echo the source master's geometric header/footer marks.
+\newcommand{\pcl@bars}{%
+  \fill[PCLBlue] (0,0) rectangle (0.18,0.18);
+  \fill[PCLBlue] (0.25,0) rectangle (0.43,0.18);
+  \fill[PCLBlue] (0.50,0) rectangle (1.12,0.18);
+}
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.98cm,dp=0pt]{frametitle}
+    \begin{tikzpicture}[remember picture,overlay]
+      \begin{scope}[shift={([xshift=0.48cm,yshift=-0.80cm]current page.north west)}]
+        \pcl@bars
+      \end{scope}
+      \node[anchor=west,inner sep=0pt,text width=12.3cm,align=left,text=PCLBlue]
+        at ([xshift=1.78cm,yshift=-0.65cm]current page.north west) {%
+          \usebeamerfont{frametitle}\strut\insertframetitle
+          \ifx\insertframesubtitle\@empty\else
+            \\[-0.3ex]{\usebeamerfont{framesubtitle}\color{PCLMuted}\insertframesubtitle}%
+          \fi};
+      \node[inner sep=0pt] at ([xshift=-0.97cm,yshift=-0.62cm]current page.north east)
+        {\pcl@seal{0.96cm}};
+      \pcl@drawtimeline{1.18cm}
+    \end{tikzpicture}
+  \end{beamercolorbox}
+  \vspace{0.12cm}%
+}
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.55cm,dp=0pt]{normal text}
+    \begin{tikzpicture}[remember picture,overlay]
+      \draw[PCLLine,line width=0.4pt]
+        ([xshift=0.8cm,yshift=0.51cm]current page.south west)
+        -- ([xshift=-0.8cm,yshift=0.51cm]current page.south east);
+      \pgfmathsetmacro{\pcl@progress}{14.4*min(1,max(0,\insertframenumber/max(1,\inserttotalframenumber)))}
+      \draw[PCLBlue,line width=0.9pt]
+        ([xshift=0.8cm,yshift=0.51cm]current page.south west)
+        -- ([xshift={(0.8+\pcl@progress)*1cm},yshift=0.51cm]current page.south west);
+      \node[anchor=west,inner sep=0pt,font=\tiny,text=PCLMuted]
+        at ([xshift=0.8cm,yshift=0.22cm]current page.south west) {\insertshorttitle};
+      \begin{scope}[shift={([xshift=-2.65cm,yshift=0.14cm]current page.south east)}]
+        \pcl@bars
+      \end{scope}
+      \node[anchor=east,inner sep=0pt,font=\scriptsize\bfseries,text=PCLNavy]
+        at ([xshift=-0.8cm,yshift=0.22cm]current page.south east)
+        {\insertframenumber\,/\,\inserttotalframenumber};
+    \end{tikzpicture}
+  \end{beamercolorbox}%
+}
+
+% The reference cover has a gradient upper band and a centered round seal.
+\setbeamertemplate{title page}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[white] (current page.north west) rectangle (current page.south east);
+    \shade[top color=PCLNavy!80!black,bottom color=PCLBlue!90!PCLCyan]
+      (current page.north west) rectangle ([yshift=-3.44cm]current page.north east);
+    \node[inner sep=0pt] at ([yshift=-3.15cm]current page.north) {\pcl@seal{2.70cm}};
+    \node[inner sep=0pt,align=center,text width=14cm,text=PCLBlue,
+      font=\fontsize{23}{31}\selectfont\bfseries]
+      at ([yshift=-5.38cm]current page.north) {\inserttitle};
+    \node[inner sep=0pt,align=center,text width=14cm,text=PCLMuted,font=\small]
+      at ([yshift=-6.12cm]current page.north) {\insertsubtitle};
+    \node[inner sep=0pt,align=center,text width=13.8cm,text=PCLBlue,font=\large]
+      at ([yshift=-6.90cm]current page.north) {\insertinstitute};
+    \node[inner sep=0pt,align=center,text width=13.8cm,text=PCLBlue,font=\normalsize]
+      at ([yshift=-7.53cm]current page.north) {\insertauthor};
+    \node[inner sep=0pt,text=PCLBlue,font=\normalsize]
+      at ([yshift=-8.20cm]current page.north) {\insertdate};
+  \end{tikzpicture}%
+}
+\renewcommand{\maketitle}{\begin{frame}[plain,noframenumbering]\titlepage\end{frame}}
+
+% Custom contents page using the source campus photo and editable polygons.
+\newcommand{\PCLcontents}{%
+  \begin{frame}[plain]
+    \begingroup
+    \pcl@collecttimeline
+    \begin{tikzpicture}[remember picture,overlay]
+      \fill[white] (current page.north west) rectangle (current page.south east);
+      \begin{scope}[shift={(current page.north west)}]
+        \begin{scope}
+          \clip (-2.7,-4.8) -- (0.65,-1.6) -- (4.0,-4.8) -- (0.65,-8.0) -- cycle;
+          \node[inner sep=0pt] at (0.65,-4.8)
+            {\includegraphics[height=6.5cm]{assets/campus.jpg}};
+        \end{scope}
+        \fill[PCLBlue!65!PCLCyan] (1.55,0) -- (6.00,0) -- (3.77,-1.60) -- cycle;
+        \fill[PCLBlue] (2.20,0) -- (6.45,0) -- (4.32,-1.30) -- cycle;
+        \node[white,font=\large\bfseries,inner sep=0pt] at (4.02,-0.46) {CONTENTS};
+        \fill[PCLLight] (12.0,-9) -- (14.3,-5.85) -- (16,-9) -- cycle;
+        \fill[PCLBlue] (12.7,-9) -- (14.65,-6.00) -- (16.6,-9) -- cycle;
+        \node[inner sep=0pt] at (15.02,-0.77) {\pcl@seal{0.96cm}};
+        \ifnum\pcl@timelinecount>0
+          \foreach \i in {1,...,\the\pcl@timelinecount}{%
+            \pgfmathsetmacro{\pcl@tocY}{-2.60-1.08*(\i-1)}
+            \node[anchor=west,inner sep=0pt,text width=9.6cm,align=left,text=PCLBlue,
+              font=\usebeamerfont{section in toc}]
+              at (4.65,\pcl@tocY) {\hyperlink{Navigation\csname pcl@timelinepage@\i\endcsname}{%
+                \PCLchn{\i}、\csname pcl@timelinefull@\i\endcsname}};
+          }
+        \fi
+        \node[anchor=east,inner sep=0pt,text=PCLNavy,font=\scriptsize\bfseries]
+          at (15.35,-8.58) {\insertframenumber\,/\,\inserttotalframenumber};
+      \end{scope}
+    \end{tikzpicture}
+    \endgroup
+  \end{frame}%
+}
+\setbeamertemplate{section page}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[white] (current page.north west) rectangle (current page.south east);
+    \fill[PCLBlue] (current page.north west)
+      rectangle ([xshift=0.25cm]current page.south west);
+    \pcl@drawtimeline{0cm}
+    \node[inner sep=0pt] at ([xshift=-1.3cm,yshift=-1.7cm]current page.north east)
+      {\pcl@seal{1.5cm}};
+    \node[anchor=west,inner sep=0pt,text=PCLBlue,font=\fontsize{54}{60}\selectfont\bfseries]
+      at ([xshift=1.15cm,yshift=0.9cm]current page.west)
+      {\ifnum\insertsectionnumber<10 0\fi\insertsectionnumber};
+    \node[anchor=west,inner sep=0pt,text=PCLBlue,text width=13.4cm,
+      font=\fontsize{26}{34}\selectfont\bfseries]
+      at ([xshift=1.15cm,yshift=-0.35cm]current page.west) {\insertsectionhead};
+    \draw[PCLCyan,line width=2pt] ([xshift=1.15cm,yshift=-1.40cm]current page.west) -- ++(2cm,0);
+  \end{tikzpicture}%
+}
+\ifpcl@sectionpages
+  \AtBeginSection[]{\begin{frame}[plain,noframenumbering]\sectionpage\end{frame}}
+\fi
+
+\newcommand{\PCLnote}[1]{\par\smallskip{\scriptsize\color{PCLMuted}#1}\par}
+\newcommand{\PCLtakeaway}[2][关键结论]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.65em,left]{block body}
+    {\color{PCLBlue}\bfseries #1}\enspace #2
+  \end{beamercolorbox}}
+\newcommand{\PCLplaceholder}[3][4cm]{%
+  \begin{tikzpicture}
+    \node[draw=PCLLine,fill=PCLLight,rounded corners=1pt,
+      minimum width=#2,minimum height=#1,text width=0.82*#2,
+      align=center,text=PCLMuted,font=\small,inner sep=0pt] {#3};
+  \end{tikzpicture}}
+\newcommand{\PCLthanks}[1][欢迎交流与讨论]{%
+  \begin{frame}[plain,noframenumbering]
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=north west,inner sep=0pt] at (current page.north west)
+        {\includegraphics[width=\paperwidth,height=\paperheight]{assets/closing-background.jpg}};
+      \node[inner sep=0pt] at ([xshift=12.47cm,yshift=-2.92cm]current page.north west)
+        {\pcl@seal{2.70cm}};
+      \node[inner sep=0pt,text=PCLBlue,font=\fontsize{38}{46}\selectfont]
+        at ([yshift=-6.65cm]current page.north) {谢谢！};
+      \node[inner sep=0pt,text=PCLMuted,font=\normalsize]
+        at ([yshift=-7.66cm]current page.north) {#1};
+      \node[inner sep=0pt,text=PCLMuted,font=\scriptsize]
+        at ([yshift=-8.35cm]current page.north) {\pcl@contact};
+    \end{tikzpicture}
+  \end{frame}%
+}
+\mode<all>

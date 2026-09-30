@@ -1,0 +1,6 @@
+* text=auto
+*.tex text eol=lf
+*.sty text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+.latexmkrc text eol=lf

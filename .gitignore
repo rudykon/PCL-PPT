@@ -1,0 +1,24 @@
+# Generated build directory and LaTeX intermediates.
+/build/
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.xdv
+*.synctex.gz
+
+# Local credentials and machine-specific files.
+.env
+.env.*
+*token*.json
+credentials*.json
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+*~
