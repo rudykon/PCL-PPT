@@ -5,6 +5,8 @@
 
 **[完整示例 PDF](examples/main.pdf) · [精简版 PDF](examples/starter.pdf) · [起始源码](starter.tex)**
 
+**矢量标识：[PDF](assets/pcl-emblem-vector.pdf) · [SVG](assets/logo/pcl-emblem-vector.svg) · [Illustrator 可编辑主稿](assets/logo/pcl-emblem-editable.ai)**
+
 ![版式预览](docs/images/preview.png)
 
 ## 快速开始
@@ -41,7 +43,7 @@ PCL-PPT/
 ├── beamerthemePCL.sty           # 统一主题与导航实现
 ├── build.sh                    # 编译与清理脚本
 ├── .latexmkrc                  # XeLaTeX 配置
-├── assets/                     # 三张必需图片与来源说明
+├── assets/                     # 矢量标识、照片、原始标识与来源说明
 ├── examples/                   # 已编译的示例 PDF
 ├── docs/images/                # 版式与时间线预览
 └── build/                      # 自动生成，Git 忽略
@@ -122,12 +124,21 @@ PCL-PPT/
 主题集中定义于 [beamerthemePCL.sty](beamerthemePCL.sty)：主蓝 `#005B9C`、深蓝 `#00467A`、
 辅助蓝 `#08A3ED`，正文深灰蓝、背景白色。
 
-中文优先使用 Noto Sans CJK SC，缺少时回退到 TeX Live 的 Fandol 黑体；
+中文优先使用 Noto Sans CJK SC，缺少时使用 `assets/fonts/` 内随附的 Noto Sans SC 静态字体，
+该字体保留完整字符集，以 Regular 400 和 Bold 700 避免 Windows 可变字体的 XeLaTeX 兼容问题。
+若字体文件也不存在，则回退到 TeX Live 的 Fandol 黑体；
 西文使用 TeX Gyre Heros 或 Latin Modern。数学公式使用 LaTeX 数学字体。
 版式针对 16:9 页面设计，改变页面比例时需同步调整主题中的几何位置。
+随附字体遵循 SIL Open Font License 1.1，许可和生成来源见 `assets/fonts/`。
 
 ## 素材说明
 
 本项目参考 `PCL汇报PPT模板.pptx` 的母版样式。圆形标识、目录照片和结束页背景均提取自该文件，
-详见 [素材来源](assets/SOURCES.md)。标题、正文、导航、表格及示例图形由 LaTeX/TikZ 排版。
+详见 [素材来源](assets/SOURCES.md)。圆形标识已通过 Illustrator 按原轮廓重新绘制，统一使用
+`assets/pcl-emblem-vector.pdf`，封面、页眉、目录与结束页均保持矢量清晰度；原始 [JPEG](assets/pcl-emblem.jpg) 另存于 `assets/` 中供对照。
+可编辑的 [AI 主稿](assets/logo/pcl-emblem-editable.ai) 与 [SVG 版本](assets/logo/pcl-emblem-vector.svg)
+均保存在仓库的 `assets/logo/` 目录，按组件分层命名。
+标识重绘选用微软雅黑粗体（MicrosoftYaHei-Bold）作为中文弧形字，英文为 Arial Regular，
+年份为 Arial Bold；AI 主稿保留可编辑文字，置入用 PDF/SVG 将文字转为轮廓，避免字体替换。
+标题、正文、导航、表格及示例图形由 LaTeX/TikZ 排版。
 本项目并非实验室官方发布的模板，图片素材权利归相应权利人所有。

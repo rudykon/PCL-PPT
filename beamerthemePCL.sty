@@ -41,15 +41,21 @@
   \setCJKsansfont{Noto Sans CJK SC}
   \setCJKmonofont{Noto Sans CJK SC}
 }{%
-  \setCJKmainfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
-  \setCJKsansfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
-  \setCJKmonofont{FandolHei-Regular}
+  \IfFileExists{assets/fonts/PCLNotoSansSC-Regular.ttf}{%
+    \setCJKmainfont{PCLNotoSansSC-Regular.ttf}[Path=assets/fonts/,BoldFont=PCLNotoSansSC-Bold.ttf]
+    \setCJKsansfont{PCLNotoSansSC-Regular.ttf}[Path=assets/fonts/,BoldFont=PCLNotoSansSC-Bold.ttf]
+    \setCJKmonofont{PCLNotoSansSC-Regular.ttf}[Path=assets/fonts/,BoldFont=PCLNotoSansSC-Bold.ttf]
+  }{%
+    \setCJKmainfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+    \setCJKsansfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+    \setCJKmonofont{FandolHei-Regular}
+  }
 }
 \usefonttheme{professionalfonts}
 \renewcommand{\familydefault}{\sfdefault}
 
 
-\newcommand{\pcl@logofile}{assets/pcl-emblem.jpg}
+\newcommand{\pcl@logofile}{assets/pcl-emblem-vector.pdf}
 \newcommand{\PCLsetlogo}[1]{\renewcommand{\pcl@logofile}{#1}}
 \newcommand{\pcl@contact}{}
 \newcommand{\contact}[1]{\renewcommand{\pcl@contact}{#1}}
