@@ -133,8 +133,9 @@ PCL-PPT/
 
 ## 素材说明
 
-本项目参考 `PCL汇报PPT模板.pptx` 的母版样式。圆形标识、目录照片和结束页背景均提取自该文件，
-详见 [素材来源](assets/SOURCES.md)。圆形标识已通过 Illustrator 按原轮廓重新绘制，统一使用
+本项目参考 `PCL汇报PPT模板.pptx` 的母版样式。原始圆形标识和结束页背景提取自该文件，
+目录照片于 2026-10-15 替换为用户提供的圆形建筑照片，保留原有菱形裁切布局，详见 [素材来源](assets/SOURCES.md)。
+圆形标识已通过 Illustrator 按原轮廓重新绘制，统一使用
 `assets/pcl-emblem-vector.pdf`，封面、页眉、目录与结束页均保持矢量清晰度；原始 [JPEG](assets/pcl-emblem.jpg) 另存于 `assets/` 中供对照。
 可编辑的 [AI 主稿](assets/logo/pcl-emblem-editable.ai) 与 [SVG 版本](assets/logo/pcl-emblem-vector.svg)
 均保存在仓库的 `assets/logo/` 目录，按组件分层命名。

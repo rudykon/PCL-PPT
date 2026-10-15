@@ -1,6 +1,7 @@
 # 参考素材来源
 
-素材来自作为设计参考的 `PCL汇报PPT模板.pptx`，于 2026-09-30 直接从 OOXML 包提取。
+原始标识和结束页背景来自作为设计参考的 `PCL汇报PPT模板.pptx`，于 2026-09-30 直接从 OOXML 包提取。
+目录页照片于 2026-10-15 替换为用户提供的圆形建筑照片。
 编译依赖本目录中的矢量标识 PDF 与两张照片，无需原始 PPTX 文件。
 
 | 本地文件 | 来源 / 位置 | 用途 |
@@ -9,10 +10,11 @@
 | [logo/pcl-emblem-vector.svg](logo/pcl-emblem-vector.svg) | 从已确认的 Illustrator 主稿导出 | 文字已转轮廓的通用矢量版本 |
 | [logo/pcl-emblem-editable.ai](logo/pcl-emblem-editable.ai) | 根据原始标识重绘并精修 | 按组件分层的可编辑主稿，保留可编辑文字；原始 [JPEG](pcl-emblem.jpg) 另存于 `assets/` 中供对照 |
 | `pcl-emblem.jpg` | `ppt/media/image1.jpeg` | 保留的原始低分辨率标识，供比对，不参与默认排版 |
-| `campus.jpg` | `ppt/media/image5.jpeg` | 目录中的建筑照片，使用 TikZ 进行菱形裁切显示 |
+| `campus.jpg` | 用户于 2026-10-15 提供的照片，1080 × 699 像素 | 目录中的圆形建筑照片，使用 TikZ 进行菱形裁切显示 |
 | `closing-background.jpg` | `ppt/media/image4.jpeg` | 结束页背景 |
 
-原始 JPEG 文件按原始字节保留。2026-10-15，圆形标识通过 Illustrator MCP 按核心轮廓重建，
+原始标识 JPEG 和结束页背景按原始字节保留；目录照片保留用户提供文件的原始字节，取景由模板调整。
+2026-10-15，圆形标识通过 Illustrator MCP 按核心轮廓重建，
 以平滑矢量路径、连续渐变和可编辑组件替代位图，导出 PDF 用于模板排版。
 分层 AI 源文件和 SVG 版本见本目录下的 [logo/](logo/)。
 默认置入的 PDF 与 SVG 均为纯矢量，文字已转轮廓，保留连续渐变，使用时无需安装标识字体。

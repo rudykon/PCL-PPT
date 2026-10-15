@@ -256,7 +256,7 @@
 }
 \renewcommand{\maketitle}{\begin{frame}[plain,noframenumbering]\titlepage\end{frame}}
 
-% Custom contents page using the source campus photo and editable polygons.
+% Custom contents page using the supplied building photo and editable polygons.
 \newcommand{\PCLcontents}{%
   \begin{frame}[plain]
     \begingroup
@@ -266,7 +266,7 @@
       \begin{scope}[shift={(current page.north west)}]
         \begin{scope}
           \clip (-2.7,-4.8) -- (0.65,-1.6) -- (4.0,-4.8) -- (0.65,-8.0) -- cycle;
-          \node[inner sep=0pt] at (0.65,-4.8)
+          \node[inner sep=0pt] at (0.35,-4.8)
             {\includegraphics[height=6.5cm]{assets/campus.jpg}};
         \end{scope}
         \fill[PCLBlue!65!PCLCyan] (1.55,0) -- (6.00,0) -- (3.77,-1.60) -- cycle;
